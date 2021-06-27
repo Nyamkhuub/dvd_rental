@@ -19,7 +19,7 @@ public class CountryService {
     @Autowired
     private CountryRepository countryRepo;
 
-    public List<Country> getCoutriesByCountrId(Long CountryId) {
-        return this.CountryRepo.findByCountryId(countryId);
+    public List<Country> getCoutriesByCountrId(Long countryId) {
+        return this.countryRepo.findByCountryId(countryId);
     }
 }

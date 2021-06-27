@@ -19,7 +19,7 @@ public class ActorService {
     @Autowired
     private ActorRepository actorRepo;
 
-    public List<Actor> getActorsByactorId(Long actorId) {
+    public List<Actor> getActorsByActorId(Long actorId) {
         return this.actorRepo.findByActorId(actorId);
     }
 }

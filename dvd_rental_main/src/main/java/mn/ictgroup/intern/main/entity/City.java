@@ -14,7 +14,7 @@ import lombok.Setter;
 
 /**
  *
- * Unubayar
+ * @author Unubayar
  *
  */
 
@@ -34,7 +34,7 @@ public class City implements Serializable {
     private String city;
 
     @Column(name = "country_id", nullable = false)
-    private integer countryId;
+    private Long countryId;
 
     @Column(name = "last_update")
     private Date lastUpdate = new Date();

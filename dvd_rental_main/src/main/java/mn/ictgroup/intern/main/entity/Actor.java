@@ -20,7 +20,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@Entity(name = "store")
+@Entity(name = "actor")
 public class Actor implements Serializable {
 
     private static final long serialVersionUID = 2976049132036415608L;

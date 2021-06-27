@@ -26,6 +26,6 @@ public class CountryController {
 
     @GetMapping()
     public List<Country> getCountriesByCountryId(@RequestParam Long countryId) {
-        return this.countryService.getCountriesByCountryId(countryId);
+        return this.countryService.getCoutriesByCountrId(countryId);
     }
 }
