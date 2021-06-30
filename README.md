@@ -4,6 +4,7 @@
   - Зөвхөн локал дээр тест хийгдсэн кодыг оруулна
 
 ## Tasks:
-  - CRUD үйлдэл туршиж үзэх (GET, POST, PUT, DELETE) [ ]
-  - Repository хамааралтай дасгал ажлууд [ ]
-    - Repository interface дээр Query annotation ашиглаж query бичих [ ] 
+  - CRUD үйлдэл туршиж үзэх (GET, POST, PUT, DELETE) - [ ]
+  - Repository хамааралтай дасгал ажлууд - [ ]
+    - Repository interface дээр Query annotation ашиглаж query бичих - [ ] 
+    - Query annotation дээр JOIN operation ашигласан query бичиж өгөгдлийг 2 өөр янзаар mapping хийж авах (use interface class || use SqlResultSetMapping) - [ ] 
