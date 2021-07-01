@@ -48,10 +48,10 @@ public class Staff implements Serializable {
     private Long storeId;
 
     @Column(name = "active", nullable = false)
-    private boolean ;<---!!!!----->
+    private boolean active;
 
     @Column(name = "username", nullable = false)
-    private String username;
+    private String userName;
 
     @Column(name = "password", nullable = false)
     private String password;
@@ -60,5 +60,5 @@ public class Staff implements Serializable {
     private Date lastUpdate = new Date();
 
     @Column(name = "picture", nullable = false)
-    <-----!!!!!----->
+    private String picture;
 }

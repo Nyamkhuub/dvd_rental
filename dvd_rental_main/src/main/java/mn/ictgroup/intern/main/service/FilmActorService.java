@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import mn.ictgroup.intern.main.entity.Inventory;
-import mn.ictgroup.intern.main.repository.InventoryRepository;
+import mn.ictgroup.intern.main.entity.FilmActor;
+import mn.ictgroup.intern.main.repository.FilmActorRepository;
 
 /**
  *

@@ -33,7 +33,7 @@ public class Category implements Serializable {
     private Long categoryId;
 
     @Column(name = "name", nullable = false)
-    private String new name;
+    private String name;
 
     @Column(name = "last_update", nullable = false)
     private Date lastUpdate = new Date();

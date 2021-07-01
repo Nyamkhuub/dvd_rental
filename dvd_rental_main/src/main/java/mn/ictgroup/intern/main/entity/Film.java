@@ -42,18 +42,23 @@ public class Film implements Serializable {
     private Date releaseYear = new Date();
 
     @Column(name = "language_id", nullable = false)
-    public Integer languageId;
+    public Long languageId;
 
     @Column(name = "rental_duration", nullable = false)
-    public Integer rentalDuration;
+    public Long rentalDuration;
 
-    @Column(name = "rantal_rate", nullable = false)
+    @Column(name = "rental_rate", nullable = false)
+    public Long rentalRate;
 
     @Column(name = "length")
-    public Integer length;
+    public Long length;
 
     @Column(name = "replacement_cost", nullable = false)
+    public Long replacementCost;
+
     @Column(name = "rating", nullable = false)
+    private String rating;
+
     @Column(name = "last_update", nullable = false)
     private Date lastUpdate = new Date();
 

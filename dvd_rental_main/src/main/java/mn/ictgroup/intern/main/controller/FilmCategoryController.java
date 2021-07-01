@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import mn.ictgroup.intern.main.entity.Inventory;
-import mn.ictgroup.intern.main.service.InventoryService;
+import mn.ictgroup.intern.main.entity.FilmCategory;
+import mn.ictgroup.intern.main.service.FilmCategoryService;
 
 /**
  *

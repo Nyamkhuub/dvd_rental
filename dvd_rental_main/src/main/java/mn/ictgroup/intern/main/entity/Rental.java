@@ -33,19 +33,19 @@ public class Rental implements Serializable {
     private Long rentalId;
 
     @Column(name = "rental_date", nullable = false)
-    private Date rental_date = new Date();
+    private Date rentalDate = new Date();
 
     @Column(name = "inventory_id", nullable = false)
-    private Long inventory_Id;
+    private Long inventoryId;
 
     @Column(name = "customer_id", nullable = false)
-    private Long customer_Id;
+    private Long customerId;
 
     @Column(name = "return_date", nullable = false)
-    private Date return_date = new Date();
+    private Date returnDate = new Date();
 
     @Column(name = "staff_id", nullable = false)
-    private Long staff_Id;
+    private Long staffId;
 
     @Column(name = "last_update", nullable = false)
     private Date lastUpdate = new Date();

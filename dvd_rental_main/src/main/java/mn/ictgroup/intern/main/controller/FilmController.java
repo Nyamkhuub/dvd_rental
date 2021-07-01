@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import mn.ictgroup.intern.main.entity.Inventory;
-import mn.ictgroup.intern.main.service.InventoryService;
+import mn.ictgroup.intern.main.entity.Film;
+import mn.ictgroup.intern.main.service.FilmService;
 
 /**
  *
@@ -24,8 +24,12 @@ public class FilmController {
     @Autowired
     private FilmService filmService;
 
-    @GetMapping()
-    public List<Film> getFilmsByFilmId(@RequestParam Long filmId) {
+    @GetMapping("filmId")
+    public List<Film> getFilmsByFilmId(@RequestParam("filmId") Long filmId) {
         return this.filmService.getFilmsByFilmId(filmId);
+    }
+    @GetMapping("languageId")
+    public List<Film> getFilmsByLanguageId(@RequestParam Long languageId) {
+        return this.filmService.getFilmsByLanguageId(languageId);
     }
 }
