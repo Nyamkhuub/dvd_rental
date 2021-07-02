@@ -15,13 +15,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 /**
- * 
+ *
  * @author B.Nyamkhuu
  * 
  * @description - Lombok dependency ашигласнаар заавал getter setter функц бичиж
  *              цаг үрэх шаардлагагүй болж байгаа
  * 
- *              - Class
  */
 
 @Getter
