@@ -16,6 +16,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface ActorRepository extends JpaRepository<Actor, Long> {
+
     List<Actor> findByActorId(Long actorId);
 
     Optional<Actor> findActorByFirstName(String firstName);

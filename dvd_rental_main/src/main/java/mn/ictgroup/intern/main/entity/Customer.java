@@ -23,20 +23,28 @@ public class Customer implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "customer_id")
     private Long customerId;
+
     @Column(name = "store_id", nullable = false)
     private Long storeId;
+
     @Column(name ="first_name", nullable = false)
     private Long firstName;
+
     @Column(name = "last_name", nullable = false)
     private Long lastName;
+
     @Column(name = "email", nullable = false)
     private Long email;
+
     @Column(name = "address_id", nullable = false)
     private Long addressId;
-    @Column(name = "create_date", nullable = false)
-    private Long createDate;
+
+    @Column(name = "create_date")
+    private Date createDate = new Date();
+
     @Column(name = "last_update")
     private Date lastUpdate = new Date();
+
     @Column(name = "active", nullable = false)
     private Long create;
 
