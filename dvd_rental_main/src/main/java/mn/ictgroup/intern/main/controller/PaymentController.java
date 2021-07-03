@@ -1,6 +1,5 @@
 package mn.ictgroup.intern.main.controller;
 
-import mn.ictgroup.intern.main.entity.Actor;
 import mn.ictgroup.intern.main.entity.Payment;
 import mn.ictgroup.intern.main.service.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,7 @@ import java.util.List;
  *
  */
 @RestController
-@RequestMapping(name = "/payment")
+@RequestMapping("/payment")
 public class PaymentController {
 
     @Autowired

@@ -1,6 +1,5 @@
 package mn.ictgroup.intern.main.service;
 
-import mn.ictgroup.intern.main.entity.Actor;
 import mn.ictgroup.intern.main.entity.Country;
 import mn.ictgroup.intern.main.repository.CountryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +24,7 @@ public class CountryService {
     }
 
     public void addNewCountry(Country country) {
-        Optional<Country> countryOptional = countryRepository.findActorByCountry(country.getCountry());
+        Optional<Country> countryOptional = countryRepository.findCountryByCountry(country.getCountry());
         countryRepository.save(country);
     }
 

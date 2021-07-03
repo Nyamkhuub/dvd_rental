@@ -1,6 +1,5 @@
 package mn.ictgroup.intern.main.service;
 
-import mn.ictgroup.intern.main.entity.Actor;
 import mn.ictgroup.intern.main.entity.Address;
 import mn.ictgroup.intern.main.repository.AddressRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +19,7 @@ public class AddressService {
     }
 
     public void addNewAddress(Address address) {
-        Optional<Address> addressOptional = addressRepository.findActorByAddress(address.getAddress());
+        Optional<Address> addressOptional = addressRepository.findAddressByAddress(address.getAddress());
         addressRepository.save(address);
     }
 

@@ -12,7 +12,7 @@ public interface CountryRepository extends JpaRepository<Country, Long> {
 
     List<Country> findByCountryId(Long countryId);
 
-    Optional<Country> findActorByCountry(Long country);
+    Optional<Country> findCountryByCountry(Long country);
 
     void deleteByCountryId(Long countryId);
 }

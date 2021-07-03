@@ -1,6 +1,5 @@
 package mn.ictgroup.intern.main.controller;
 
-import mn.ictgroup.intern.main.entity.Actor;
 import mn.ictgroup.intern.main.entity.Store;
 import mn.ictgroup.intern.main.service.StoreService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,7 @@ import java.util.List;
  *
  */
 @RestController
-@RequestMapping(name = "/store")
+@RequestMapping("/store")
 public class StoreController {
 
     @Autowired
