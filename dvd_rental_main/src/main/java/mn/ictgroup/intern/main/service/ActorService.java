@@ -28,7 +28,7 @@ public class ActorService {
         Optional<Actor>actorOptional = actorRepository.findActorByFirstName(actor.getFirstName());
       actorRepository.save(actor);
     }
-    public Response updateActor(Actor actor) {
+    public void updateActor(Actor actor) {
         Optional<Actor>actorOptional = actorRepository.findActorByActorId(actor.getActorId());
         Actor newActor = actorOptional.get();
         newActor.setActorId(actor.getActorId());
