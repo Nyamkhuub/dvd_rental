@@ -20,8 +20,8 @@ public interface ActorRepository extends JpaRepository<Actor, Long> {
     List<Actor> findByActorId(Long actorId);
 
     Optional<Actor> findActorByFirstName(String firstName);
-//
-//    void updateByActor(Actor actor);
+
+    Optional<Actor> findActorByActorId(Long actorId);
 
     void deleteByActorId(Long actorId);
 

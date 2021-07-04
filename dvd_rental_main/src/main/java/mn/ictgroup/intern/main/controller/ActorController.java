@@ -32,10 +32,10 @@ public class ActorController {
         actorService.addNewActor(actor);
     }
 
-//    @PutMapping(path = "update")
-//    public void addActor(@RequestBody Actor actor){
-//        actorService.updateActor(actor);
-//    }
+    @PutMapping(path = "update")
+    public void addActor(@RequestBody Actor actor){
+        actorService.updateActor(actor);
+    }
     @DeleteMapping(path = "{actorId}")
     public void wrongActor(@PathVariable("actorId") Long actorId){
         actorService.deleteActor(actorId);

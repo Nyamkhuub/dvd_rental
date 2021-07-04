@@ -3,6 +3,7 @@ package mn.ictgroup.intern.main.service;
 import java.util.List;
 import java.util.Optional;
 
+import mn.ictgroup.intern.main.dto.Response;
 import mn.ictgroup.intern.main.entity.Actor;
 import mn.ictgroup.intern.main.repository.ActorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,9 +28,16 @@ public class ActorService {
         Optional<Actor>actorOptional = actorRepository.findActorByFirstName(actor.getFirstName());
       actorRepository.save(actor);
     }
-//    public void updateActor(Actor actor) {
-//        actorRepository.updateByActor(actor);
-//    }
+    public Response updateActor(Actor actor) {
+        Optional<Actor>actorOptional = actorRepository.findActorByActorId(actor.getActorId());
+        Actor newActor = actorOptional.get();
+        newActor.setActorId(actor.getActorId());
+        newActor.setFirstName(actor.getFirstName());
+        newActor.setLastName(actor.getLastName());
+        newActor.setLastUpdate(actor.getLastUpdate());
+
+         newActor = actorRepository.save(newActor);
+    }
 
     public void deleteActor(Long actorId) {
         actorRepository.deleteByActorId(actorId);
