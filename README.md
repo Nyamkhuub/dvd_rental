@@ -6,6 +6,7 @@
 
 ## Tasks:
   - [ ] CRUD үйлдэл туршиж үзэх (GET, POST, PUT, DELETE)
+  - [ ] Exception handler бичих турших
   - [ ] Repository хамааралтай дасгал ажлууд
     - [ ] Repository interface дээр Query annotation ашиглаж query бичих
     - [ ] Query annotation дээр JOIN operation ашигласан query бичиж өгөгдлийг 2 өөр янзаар mapping хийж авах (use interface class || use SqlResultSetMapping)
