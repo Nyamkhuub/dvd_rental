@@ -1,5 +1,6 @@
 package mn.ictgroup.intern.main.controller;
 
+import mn.ictgroup.intern.main.dto.Response;
 import mn.ictgroup.intern.main.entity.City;
 import mn.ictgroup.intern.main.service.CityService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,15 +20,21 @@ public class CityController {
     @Autowired
     private CityService cityService;
 
-    @GetMapping(path = "cityId")
+    @GetMapping()
     public List<City> getCitiesByCityId(@RequestParam Long cityId) {
         return this.cityService.getCitiesByCityId(cityId);
     }
-    @PostMapping(path = "add")
-    public void saveNewCity(@RequestBody City city) {
-        cityService.addNewCity(city);
+    @PostMapping()
+    public City saveNewCity(@RequestBody City city) {
+        return cityService.addNewCity(city);
     }
-    @DeleteMapping(path = "{cityId}")
+
+    @PutMapping()
+    public Response updateCity(@RequestBody City city){
+        return cityService.editCity(city);
+    }
+
+    @DeleteMapping()
     public void wrongCity(@PathVariable("cityId") Long cityId){
         cityService.deleteCity(cityId);
     }

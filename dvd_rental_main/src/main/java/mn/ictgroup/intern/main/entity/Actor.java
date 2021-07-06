@@ -38,5 +38,4 @@ public class Actor implements Serializable {
 
     @Column(name = "last_update")
     private Date lastUpdate = new Date();
-
 }

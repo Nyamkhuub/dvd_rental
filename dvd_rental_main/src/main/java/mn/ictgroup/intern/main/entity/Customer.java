@@ -39,6 +39,9 @@ public class Customer implements Serializable {
     @Column(name = "address_id", nullable = false)
     private Long addressId;
 
+    @Column(name = "active_bool", nullable = false)
+    private Boolean activeBool;
+
     @Column(name = "create_date")
     private Date createDate = new Date();
 

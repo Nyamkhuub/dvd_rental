@@ -1,6 +1,8 @@
 package mn.ictgroup.intern.main.service;
 
+import mn.ictgroup.intern.main.dto.Response;
 import mn.ictgroup.intern.main.entity.Payment;
+import mn.ictgroup.intern.main.exception.ApiRequestException;
 import mn.ictgroup.intern.main.repository.PaymentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -23,12 +25,36 @@ public class PaymentService {
         return this.paymentRepository.findByPaymentId(paymentId);
     }
 
-    public void addNewPayment(Payment payment) {
+    public Payment addNewPayment(Payment payment) {
         Optional<Payment>paymentOptional = paymentRepository.findPaymentByCustomerId(payment.getCustomerId());
-        paymentRepository.save(payment);
+        if(paymentOptional.isPresent()){
+            throw new ApiRequestException("FirstName taken");
+        }
+       return paymentRepository.save(payment);
+    }
+
+    public Response editPayment(Payment payment) {
+        Optional<Payment>paymentOptional = paymentRepository.findPaymentByPaymentId(payment.getPaymentId());
+        Payment newPayment = paymentOptional.get();
+        if(paymentOptional.isPresent()){
+            newPayment.setPaymentId(payment.getPaymentId());
+            newPayment.setCustomerId(payment.getCustomerId());
+            newPayment.setStaffId(payment.getStaffId());
+            newPayment.setRentalId(payment.getRentalId());
+            newPayment.setAmount(payment.getAmount());
+            newPayment.setPaymentDate(payment.getPaymentDate());
+            throw new ApiRequestException("amjltgui");
+        }
+        paymentRepository.save(newPayment);
+        return new Response ("amjilttai", "success");
     }
 
     public void deletePayment(Long paymentId) {
+        boolean exists = paymentRepository.existsById(paymentId);
+        if (!exists){
+            throw new ApiRequestException(paymentId + "doesn't delete");
+        }
         paymentRepository.deleteByPaymentId(paymentId);
     }
+
 }

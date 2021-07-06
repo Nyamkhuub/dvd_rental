@@ -21,32 +21,25 @@ public class ActorController {
     @Autowired
     private ActorService actorService;
 
-
-    @GetMapping(path = "actorId")
+    @GetMapping()
     public List<Actor> getActorsByActorId(@RequestParam Long actorId) {
         return this.actorService.getActorsByActorId(actorId);
     }
 
-    @PostMapping(path = "add")
-    public void saveNewActor(@RequestBody Actor actor) {
-        actorService.addNewActor(actor);
+    @PostMapping()
+    public Actor saveNewActor(@RequestBody Actor actor){
+        return actorService.addNewActor(actor);
     }
 
-    @PutMapping(path = "update")
-    public void addActor(@RequestBody Actor actor){
-        actorService.updateActor(actor);
+    @PutMapping()
+    public Response addActor(@RequestBody Actor actor){
+       return actorService.updateActor(actor);
     }
-    @DeleteMapping(path = "{actorId}")
+
+    @DeleteMapping()
     public void wrongActor(@PathVariable("actorId") Long actorId){
         actorService.deleteActor(actorId);
     }
-
 }
-    /**
-     * PostMapping use Response
-    @PostMapping(path = "addActor")
-    public Response saveNewActor(@RequestBody Actor actor){
-       return actorService.addNewActor(actor);
-    }
-  */
+
 

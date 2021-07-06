@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import mn.ictgroup.intern.main.dto.Response;
 import mn.ictgroup.intern.main.entity.Actor;
+import mn.ictgroup.intern.main.exception.ApiRequestException;
 import mn.ictgroup.intern.main.repository.ActorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,29 +25,33 @@ public class ActorService {
         return this.actorRepository.findByActorId(actorId);
     }
 
-    public void addNewActor(Actor actor) {
+    public Actor addNewActor(Actor actor) {
         Optional<Actor>actorOptional = actorRepository.findActorByFirstName(actor.getFirstName());
-      actorRepository.save(actor);
+        if(actorOptional.isPresent()){
+            throw new ApiRequestException("FirstName taken");
+        }
+          return actorRepository.save(actor);
     }
-    public void updateActor(Actor actor) {
-        Optional<Actor>actorOptional = actorRepository.findActorByActorId(actor.getActorId());
-        Actor newActor = actorOptional.get();
-        newActor.setActorId(actor.getActorId());
-        newActor.setFirstName(actor.getFirstName());
-        newActor.setLastName(actor.getLastName());
-        newActor.setLastUpdate(actor.getLastUpdate());
 
-         newActor = actorRepository.save(newActor);
+    public Response updateActor(Actor actor) {
+        Optional<Actor>actorOptional = actorRepository.findActorByLastName(actor.getLastName());
+        Actor newActor = actorOptional.get();
+        if(actorOptional.isPresent()){
+            newActor.setActorId(actor.getActorId());
+            newActor.setFirstName(actor.getFirstName());
+            newActor.setLastName(actor.getLastName());
+            newActor.setLastUpdate(actor.getLastUpdate());
+            throw new ApiRequestException("amjltgui");
+        }
+            actorRepository.save(newActor);
+         return new Response ("amjilttai", "success");
     }
 
     public void deleteActor(Long actorId) {
-        actorRepository.deleteByActorId(actorId);
+       boolean exists = actorRepository.existsById(actorId);
+       if (!exists){
+           throw new ApiRequestException(actorId + "doesn't delete");
+       }
+       actorRepository.deleteByActorId(actorId);
     }
-
-
-//    public Response addNewActor(Actor actor) {
-//        Optional<Actor>actorOptional = actorRepository.findActorByFirstName(actor.getFirstName());
-//        actorRepository.save(actor);
-//        return null;
-//    }
 }

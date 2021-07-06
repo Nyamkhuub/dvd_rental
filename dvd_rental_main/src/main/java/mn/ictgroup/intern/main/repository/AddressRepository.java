@@ -13,5 +13,8 @@ public interface AddressRepository extends JpaRepository<Address, Long> {
 
     Optional<Address> findAddressByAddress(Long address);
 
+    Optional<Address> findAddressByAddress2(Long address2);
+
     void deleteByAddressId(Long addressId);
+
 }

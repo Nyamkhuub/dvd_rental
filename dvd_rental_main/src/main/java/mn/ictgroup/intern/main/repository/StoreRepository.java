@@ -11,7 +11,9 @@ import java.util.Optional;
 public interface StoreRepository extends JpaRepository<Store, Long> {
     List<Store> findByStoreId(Long storeId);
 
-    Optional<Store> findByManagerStaffId(Long managerStaffId);
+    Optional<Store> findStoreByStoreId(Long storeId);
+
+    Optional<Store> findStoreByManagerStaffId(Long managerStaffId);
 
     void deleteByStoreId(Long storeId);
 }
