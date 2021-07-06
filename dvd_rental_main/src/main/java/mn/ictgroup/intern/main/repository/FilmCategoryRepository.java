@@ -15,8 +15,7 @@ import mn.ictgroup.intern.main.entity.FilmCategory;
 @Repository
 public interface FilmCategoryRepository extends JpaRepository<FilmCategory, Long> {
 
-    /**
-     * Жишээ байдлаар 1 функц бичив
-     */
     List<FilmCategory> findByFilmId(Long filmId);
+
+    List<FilmCategory> findByCategoryId(Long categoryId);
 }

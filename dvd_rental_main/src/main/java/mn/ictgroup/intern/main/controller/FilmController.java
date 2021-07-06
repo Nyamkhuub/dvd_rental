@@ -3,10 +3,7 @@ package mn.ictgroup.intern.main.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import mn.ictgroup.intern.main.entity.Film;
 import mn.ictgroup.intern.main.service.FilmService;
@@ -24,12 +21,22 @@ public class FilmController {
     @Autowired
     private FilmService filmService;
 
-    @GetMapping("filmId")
+    @GetMapping()
     public List<Film> getFilmsByFilmId(@RequestParam("filmId") Long filmId) {
         return this.filmService.getFilmsByFilmId(filmId);
     }
-    @GetMapping("languageId")
+    @GetMapping()
     public List<Film> getFilmsByLanguageId(@RequestParam Long languageId) {
         return this.filmService.getFilmsByLanguageId(languageId);
     }
+    @PostMapping()
+    public void addNewFilm(@RequestBody Film film) {
+        filmService.saveNewFilm(film);
+    }
+
+    @DeleteMapping()
+    public void deleteFilm(@PathVariable("filmId") Long filmId) {
+        filmService.removeFilm(filmId);
+    }
+
 }

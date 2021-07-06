@@ -18,7 +18,7 @@ import mn.ictgroup.intern.main.service.FilmActorService;
  */
 
 @RestController
-@RequestMapping("/filmactor")
+@RequestMapping("/filmActor")
 public class FilmActorController {
 
     @Autowired
@@ -27,5 +27,9 @@ public class FilmActorController {
     @GetMapping()
     public List<FilmActor> getFilmActorsByFilmId(@RequestParam Long filmId) {
         return this.filmActorService.getFilmActorsByFilmId(filmId);
+    }
+    @GetMapping()
+    public List<FilmActor> getFilmActorsByActorId(@RequestParam Long actorId) {
+        return this.filmActorService.getFilmActorsByActorId(actorId);
     }
 }

@@ -4,10 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import mn.ictgroup.intern.main.entity.Category;
 import mn.ictgroup.intern.main.service.CategoryService;
@@ -31,5 +28,14 @@ public class CategoryController {
         return this.categoryService.getCategoriesByCategoryId(categoryId);
     }
 
+    @PostMapping()
+    public void addNewCategory(@RequestBody Category category) {
+        categoryService.addNewCategory(category);
+    }
+
+    @DeleteMapping()
+    public void deleteActor(@PathVariable("categoryId") Long categoryId) {
+        categoryService.removeCategory(categoryId);
+    }
 
 }

@@ -19,15 +19,10 @@ import static org.hibernate.loader.Loader.SELECT;
 @Repository
 public interface StaffRepository extends JpaRepository<Staff, Long> {
 
-    /**
-     * Жишээ байдлаар 1 функц бичив
-     */
-    List<Staff> findByAddressId(Long addressId);
-
     List<Staff> findByStaffId(Long staffId);
 
     //@Query("SELECT s FROM Staff s WHERE s.email = ?1")
     Optional<Staff> findStaffByEmail(String email);
 
-
+    Optional<Staff> findStaffByFirstName(String firstName);
 }

@@ -22,4 +22,8 @@ public class FilmActorService {
     public List<FilmActor> getFilmActorsByFilmId(Long filmId) {
         return this.filmActorRepo.findByFilmId(filmId);
     }
+
+    public List<FilmActor> getFilmActorsByActorId(Long actorId) {
+        return this.filmActorRepo.findByActorId(actorId);
+    }
 }
