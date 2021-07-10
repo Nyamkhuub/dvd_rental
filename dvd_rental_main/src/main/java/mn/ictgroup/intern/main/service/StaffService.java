@@ -22,84 +22,58 @@ import org.springframework.transaction.annotation.Transactional;
 public class StaffService {
 
     @Autowired
-    private StaffRepository staffRepo;
+    private StaffRepository staffRepository;
 
 
     public List<Staff> getStaffsByStaffId(Long staffId) {
-        return this.staffRepo.findByStaffId(staffId);
+        return this.staffRepository.findByStaffId(staffId);
     }
 
-   public void addNewStaff(Staff staff) {
-        Optional<Staff> staffOptional = staffRepo.findStaffByEmail(staff.getEmail());
+    public void addNewStaff(Staff staff) {
+        Optional<Staff> staffOptional = staffRepository.findStaffByEmail(staff.getEmail());
         if (staffOptional.isPresent()) {
-            throw new IllegalStateException("email taken");
+            throw new IllegalStateException("taken");
         }
-        staffRepo.save(staff);
+        staffRepository.save(staff);
     }
-
+    public Response addNewStaffTest(Staff staff) {
+        Optional<Staff> staffOptional = staffRepository.findStaffByFirstName(staff.getFirstName());
+        if (staffOptional.isPresent()) {
+            throw new IllegalStateException("taken");
+        }
+        staffRepository.save(staff);
+        return new Response("done","done");
+    }
     public void deleteStaff(Long staffId) {
-        boolean exists = staffRepo.existsById(staffId);
+        boolean exists = staffRepository.existsById(staffId);
         if (!exists) {
             throw new IllegalStateException("staff with id " + staffId + " does not exists");
         }
-        staffRepo.deleteById(staffId);
+        staffRepository.deleteById(staffId);
     }
+    /**
     @Transactional
-    public void updateStaff(Long staffId,
-                            String firstName,
-                            String lastName,
-                            Integer addressId,
-                            String email,
-                            Long storeId,
-                            boolean active,
-                            String userName,
-                            String password,
-                            Date lastUpdate,
-                            String picture) {
-        Staff staff = staffRepo.findById(staffId).orElseThrow(() -> new IllegalStateException
-                ("staff with id " + staffId + " does not exists "));
-        if (firstName != null && firstName.length() > 0 && !Objects.equals(staff.getFirstName(), firstName))
-        {
-            staff.setFirstName(firstName);
+    public Response updateStaff(Staff staff) {
+        Optional<Staff> staffOptional = staffRepository.findStaffByFirstName(staff.getFirstName());
+
+        if (staffOptional.isPresent()) {
+            throw new IllegalStateException("taken");
         }
-        if (lastName != null && lastName.length() > 0 && !Objects.equals(staff.getLastName(), lastName))
-        {
-            staff.setLastName(lastName);
-        }
-        if (addressId != null && !Objects.equals(staff.getAddressId(), addressId)) {
-            staff.setAddressId(addressId);
-        }
-        if (email != null && email.length() > 0 && !Objects.equals(staff.getEmail(), email)) {
-            Optional<Staff> staffOptional = staffRepo.findStaffByEmail(email);
-            if (staffOptional.isPresent()) {
-                throw new IllegalStateException("email taken");
-            }
-            staff.setEmail(email);
-        }
-        if (storeId != null && !Objects.equals(staff.getStoreId(), storeId)) {
-            staff.setStoreId(storeId);
-        }
-            staff.setActive(active);
-        if (userName != null && userName.length() > 0 && !Objects.equals(staff.getUserName(), userName))
-        {
-            staff.setUserName(userName);
-        }
-        if (password != null && password.length() > 0 && !Objects.equals(staff.getPassword(), password))
-        {
-            staff.setPassword(password);
-        }
-            staff.setLastUpdate(lastUpdate);
-        if (picture != null && picture.length() > 0 && !Objects.equals(staff.getPicture(), picture)) {
-            staff.setPicture(picture);
-        }
+            staff.setFirstName(staff.getFirstName());
+            staff.setLastName(staff.getLastName());
+            staff.setAddressId(staff.getAddressId());
+            staff.setEmail(staff.getEmail());
+            staff.setStoreId(staff.getStoreId());
+            staff.setActive(staff.getActive());
+            staff.setUserName(staff.getUserName());
+            staff.setPassword(staff.getPassword());
+            staff.setLastUpdate(staff.getLastUpdate());
+            staff.setPicture(staff.getPicture());
+            staffRepository.save(staff);
+            return new Response("done","done");
     }
 
-    public Response addNewStaffTest(Staff staff) {
-        Optional<Staff> staffOptional = staffRepo.findStaffByEmail(staff.getEmail());
-        if (staffOptional.isPresent()) {
-            throw new IllegalStateException("email taken");
-        }
-        staffRepo.save(staff);
-        return null;
+    public void updateStaff(Long staffId, String firstName, String lastName, Long addressId, String email, Long storeId, Boolean active, String userName, String password, Date lastUpdate, String picture) {
     }
+    */
 }

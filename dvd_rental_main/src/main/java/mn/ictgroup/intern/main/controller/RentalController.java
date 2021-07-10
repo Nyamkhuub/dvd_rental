@@ -4,10 +4,7 @@ import java.util.List;
 
 import mn.ictgroup.intern.main.service.RentalService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import mn.ictgroup.intern.main.entity.Rental;
 
@@ -25,7 +22,17 @@ public class RentalController {
     private RentalService rentalService;
 
     @GetMapping()
-    public List<Rental> getRentalsByStaffId(@RequestParam Long staffId) {
-        return this.rentalService.getRentalsByStaffId(staffId);
+    public List<Rental> getRentalsByRentalId(@RequestParam Long rentalId) {
+        return this.rentalService.getRentalsByRentalId(rentalId);
     }
+    @PostMapping()
+    public void saveNewActor(@RequestBody Rental rental) {
+        rentalService.addNewRental(rental);
+    }
+
+    @DeleteMapping()
+    public void deleteRental(@PathVariable("rentalId") Long rentalId) {
+        rentalService.removeRental(rentalId);
+    }
+
 }

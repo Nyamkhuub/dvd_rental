@@ -23,37 +23,29 @@ public class StaffController {
     @Autowired
     private StaffService staffService;
 
-    @GetMapping(path = "staffId")
+    @GetMapping()
     public List<Staff> getStaffsByStaffId(@RequestParam Long staffId) {
         return this.staffService.getStaffsByStaffId(staffId);
     }
 
-    @PostMapping(path = "addStaff")
-     public void registerNewStaff(@RequestBody Staff staff){
+    @PostMapping()
+    public void registerNewStaff(@RequestBody Staff staff){
          staffService.addNewStaff(staff);
-     }
-     @PostMapping(path = "add")
-     public Response saveNewStaff(@RequestBody Staff staff) {
-         return staffService.addNewStaffTest(staff);
+    }
+
+    @PostMapping()
+    public Response saveNewStaff(@RequestBody Staff staff) {
+        return staffService.addNewStaffTest(staff);
      }
 
-    @DeleteMapping(path = "{staffId}")
+    @DeleteMapping()
     public void deleteStaff(@PathVariable("staffId") Long staffId) {
         staffService.deleteStaff(staffId);
     }
-    @PutMapping(path = "{staffId}")
-    public void updateStaff(
-            @PathVariable("staffId") Long staffId,
-            @RequestParam(required = false) String firstName,
-            @RequestParam(required = false) String lastName,
-            @RequestParam(required = false) Integer addressId,
-            @RequestParam(required = false) String email,
-            @RequestParam(required = false) Long storeId,
-            @RequestParam(required = false) boolean active,
-            @RequestParam(required = false) String userName,
-            @RequestParam(required = false) String password,
-            @RequestParam(required = false) Date lastUpdate,
-            @RequestParam(required = false) String picture) {
-        staffService.updateStaff(staffId, firstName, lastName, addressId, email, storeId, active, userName, password, lastUpdate,picture);
+/**
+    @PutMapping()
+    public void updateStaff(Staff staff) {
+        staffService.updateStaff(staff.getStaffId(), staff.getFirstName(), staff.getLastName(), staff.getAddressId(), staff.getEmail(), staff.getStoreId(), staff.getActive(), staff.getUserName(), staff.getPassword(), staff.getLastUpdate(),staff.getPicture());
     }
+    */
 }

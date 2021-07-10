@@ -4,7 +4,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/dvdrental
     username: postgres
-    password: 
+    password: postgres
   # JPA properties
   jpa:
     hibernate:

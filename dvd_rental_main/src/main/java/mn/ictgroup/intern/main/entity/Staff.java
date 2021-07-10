@@ -39,7 +39,7 @@ public class Staff implements Serializable {
     private String lastName;
 
     @Column(name = "address_id", nullable = false)
-    private Integer addressId;
+    private Long addressId;
 
     @Column(name = "email", nullable = false)
     private String email;
@@ -48,7 +48,7 @@ public class Staff implements Serializable {
     private Long storeId;
 
     @Column(name = "active", nullable = false)
-    private boolean active;
+    private Boolean active;
 
     @Column(name = "username", nullable = false)
     private String userName;

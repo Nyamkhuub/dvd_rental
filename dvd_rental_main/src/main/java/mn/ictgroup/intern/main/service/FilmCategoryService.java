@@ -21,4 +21,8 @@ public class FilmCategoryService {
     private FilmCategoryRepository filmCategoryRepo;
 
     public List<FilmCategory> getFilmCategoriesByFilmId(Long filmId) { return this.filmCategoryRepo.findByFilmId(filmId); }
+
+    public List<FilmCategory> getFilmCategoriesByCategoryId(Long categoryId) {
+        return this.filmCategoryRepo.findByCategoryId(categoryId);
+    }
 }
