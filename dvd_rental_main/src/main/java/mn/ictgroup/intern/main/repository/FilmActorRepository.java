@@ -1,5 +1,6 @@
 package mn.ictgroup.intern.main.repository;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,8 +16,5 @@ import mn.ictgroup.intern.main.entity.FilmActor;
 @Repository
 public interface FilmActorRepository extends JpaRepository<FilmActor, Long> {
 
-
-    List<FilmActor> findByFilmId(Long filmId);
-
-    List<FilmActor> findByActorId(Long actorId);
+    List<FilmActor> findFilmActorByLastUpdate(Date lastUpdate);
 }

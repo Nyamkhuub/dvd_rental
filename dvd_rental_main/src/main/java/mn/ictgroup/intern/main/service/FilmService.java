@@ -3,6 +3,7 @@ package mn.ictgroup.intern.main.service;
 import java.util.List;
 import java.util.Optional;
 
+import mn.ictgroup.intern.main.dto.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,23 +19,21 @@ import mn.ictgroup.intern.main.repository.FilmRepository;
 public class FilmService {
 
     @Autowired
-    private FilmRepository filmRepo;
+    private FilmRepository filmRepository;
 
-    public List<Film> getFilmsByLanguageId(Long languageId) {
-        return this.filmRepo.findByLanguageId(languageId);
-    }
     public List<Film> getFilmsByFilmId(Long filmId) {
-        return this.filmRepo.findByFilmId(filmId);
+        return this.filmRepository.findByFilmId(filmId);
     }
 
-    public void saveNewFilm(Film film) {
-        Optional<Film> filmOptional = filmRepo.findByFilmLength(film.getLength());
+    public Response saveNewFilm(Film film) {
+        Optional<Film> filmOptional = filmRepository.findByFilmTitle(film.getFilmTitle());
         if (filmOptional.isPresent()) {
             throw new IllegalStateException("taken");
         }
-        filmRepo.save(film);
+        filmRepository.save(film);
+        return  new Response("done","done");
     }
     public void removeFilm(Long filmId) {
-        filmRepo.deleteById(filmId);
+        filmRepository.deleteById(filmId);
     }
 }

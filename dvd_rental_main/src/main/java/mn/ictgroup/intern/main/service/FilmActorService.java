@@ -1,5 +1,6 @@
 package mn.ictgroup.intern.main.service;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,13 +18,10 @@ import mn.ictgroup.intern.main.repository.FilmActorRepository;
 public class FilmActorService {
 
     @Autowired
-    private FilmActorRepository filmActorRepo;
+    private FilmActorRepository filmActorRepository;
 
-    public List<FilmActor> getFilmActorsByFilmId(Long filmId) {
-        return this.filmActorRepo.findByFilmId(filmId);
+    public List<FilmActor> getFilmActorsByLastUpdate(Date lastUpdate) {
+        return this.filmActorRepository.findFilmActorByLastUpdate(lastUpdate);
     }
 
-    public List<FilmActor> getFilmActorsByActorId(Long actorId) {
-        return this.filmActorRepo.findByActorId(actorId);
-    }
 }

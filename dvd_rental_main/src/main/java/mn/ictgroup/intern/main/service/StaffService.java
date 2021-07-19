@@ -24,18 +24,10 @@ public class StaffService {
     @Autowired
     private StaffRepository staffRepository;
 
-
     public List<Staff> getStaffsByStaffId(Long staffId) {
         return this.staffRepository.findByStaffId(staffId);
     }
 
-    public void addNewStaff(Staff staff) {
-        Optional<Staff> staffOptional = staffRepository.findStaffByEmail(staff.getEmail());
-        if (staffOptional.isPresent()) {
-            throw new IllegalStateException("taken");
-        }
-        staffRepository.save(staff);
-    }
     public Response addNewStaffTest(Staff staff) {
         Optional<Staff> staffOptional = staffRepository.findStaffByFirstName(staff.getFirstName());
         if (staffOptional.isPresent()) {

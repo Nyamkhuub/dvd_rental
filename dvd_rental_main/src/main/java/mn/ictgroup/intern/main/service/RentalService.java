@@ -1,5 +1,6 @@
 package mn.ictgroup.intern.main.service;
 
+import mn.ictgroup.intern.main.dto.Response;
 import mn.ictgroup.intern.main.entity.Category;
 import mn.ictgroup.intern.main.entity.Rental;
 import mn.ictgroup.intern.main.repository.RentalRepository;
@@ -17,20 +18,21 @@ import java.util.Optional;
 @Service
 public class RentalService {
     @Autowired
-    private RentalRepository rentalRepo;
+    private RentalRepository rentalRepository;
 
     public List<Rental> getRentalsByRentalId(Long rentalId) {
-        return this.rentalRepo.getRentalsByRentalId(rentalId);
+        return this.rentalRepository.getRentalsByRentalId(rentalId);
     }
 
-    public void addNewRental(Rental rental) {
-        Optional<Rental> rentalOptional = rentalRepo.findByRentalDate(rental.getRentalDate());
+    public Response addNewRental(Rental rental) {
+        Optional<Rental> rentalOptional = rentalRepository.findByRentalDate(rental.getRentalDate());
         if (rentalOptional.isPresent()) {
             throw new IllegalStateException("taken");
         }
-        rentalRepo.save(rental);
+        rentalRepository.save(rental);
+        return new Response("done","done");
     }
     public void removeRental(Long rentalId) {
-        rentalRepo.deleteById(rentalId);
+        rentalRepository.deleteById(rentalId);
     }
 }

@@ -2,7 +2,9 @@ package mn.ictgroup.intern.main.service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.ResourceBundle;
 
+import mn.ictgroup.intern.main.dto.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,19 +20,20 @@ import mn.ictgroup.intern.main.repository.LanguageRepository;
 public class LanguageService {
 
     @Autowired
-    private LanguageRepository languageRepo;
+    private LanguageRepository languageRepository;
 
     public List<Language> getLanguagesByLanguageId(Long languageId) {
-        return this.languageRepo.findByLanguageId(languageId);
+        return this.languageRepository.findByLanguageId(languageId);
     }
-    public void addNewLanguage(Language language) {
-        Optional<Language> languageOptional = languageRepo.findByLanguageName(language.getName());
+    public Response addNewLanguage(Language language) {
+        Optional<Language> languageOptional = languageRepository.findByLanguageName(language.getLanguageName());
         if (languageOptional.isPresent()) {
             throw new IllegalStateException("taken");
             }
-        languageRepo.save(language);
+        languageRepository.save(language);
+        return new Response("done","done");
     }
     public void removeLanguage(Long languageId) {
-        languageRepo.deleteById(languageId);
+        languageRepository.deleteById(languageId);
     }
 }

@@ -1,5 +1,6 @@
 package mn.ictgroup.intern.main.service;
 
+import java.util.Date;
 import java.util.List;
 
 import mn.ictgroup.intern.main.entity.FilmCategory;
@@ -18,11 +19,9 @@ import org.springframework.stereotype.Service;
 public class FilmCategoryService {
 
     @Autowired
-    private FilmCategoryRepository filmCategoryRepo;
+    private FilmCategoryRepository filmCategoryRepository;
 
-    public List<FilmCategory> getFilmCategoriesByFilmId(Long filmId) { return this.filmCategoryRepo.findByFilmId(filmId); }
-
-    public List<FilmCategory> getFilmCategoriesByCategoryId(Long categoryId) {
-        return this.filmCategoryRepo.findByCategoryId(categoryId);
+    public List<FilmCategory> getFilmCategoriesByLastUpdate(Date lastUpdate) {
+        return this.filmCategoryRepository.findByLastUpdate(lastUpdate);
     }
 }

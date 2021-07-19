@@ -25,10 +25,6 @@ public class FilmController {
     public List<Film> getFilmsByFilmId(@RequestParam("filmId") Long filmId) {
         return this.filmService.getFilmsByFilmId(filmId);
     }
-    @GetMapping()
-    public List<Film> getFilmsByLanguageId(@RequestParam Long languageId) {
-        return this.filmService.getFilmsByLanguageId(languageId);
-    }
     @PostMapping()
     public void addNewFilm(@RequestBody Film film) {
         filmService.saveNewFilm(film);

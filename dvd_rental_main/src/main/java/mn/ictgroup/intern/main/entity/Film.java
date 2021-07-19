@@ -33,7 +33,7 @@ public class Film implements Serializable {
     private Long filmId;
 
     @Column(name = "title", nullable = false)
-    private String title;
+    private String filmTitle;
 
     @Column(name = "description")
     private String description;

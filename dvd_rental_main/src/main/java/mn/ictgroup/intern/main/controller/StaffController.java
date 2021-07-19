@@ -29,13 +29,8 @@ public class StaffController {
     }
 
     @PostMapping()
-    public void registerNewStaff(@RequestBody Staff staff){
-         staffService.addNewStaff(staff);
-    }
-
-    @PostMapping()
-    public Response saveNewStaff(@RequestBody Staff staff) {
-        return staffService.addNewStaffTest(staff);
+    public void saveNewStaff(@RequestBody Staff staff) {
+        staffService.addNewStaffTest(staff);
      }
 
     @DeleteMapping()

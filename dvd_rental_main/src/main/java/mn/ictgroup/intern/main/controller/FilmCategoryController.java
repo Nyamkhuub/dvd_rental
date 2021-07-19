@@ -1,5 +1,6 @@
 package mn.ictgroup.intern.main.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,11 +23,7 @@ public class FilmCategoryController {
     private FilmCategoryService filmCategoryService;
 
     @GetMapping()
-    public List<FilmCategory> getFilmCategoriesByFilmId(@RequestParam Long filmId) {
-        return this.filmCategoryService.getFilmCategoriesByFilmId(filmId);
-    }
-    @GetMapping()
-    public List<FilmCategory> getFilmCategoriesByCategoryId(@RequestParam Long categoryId) {
-        return this.filmCategoryService.getFilmCategoriesByCategoryId(categoryId);
+    public List<FilmCategory> getFilmCategoriesByLastUpdate(@RequestParam Date lastUpdate) {
+        return this.filmCategoryService.getFilmCategoriesByLastUpdate(lastUpdate);
     }
 }
