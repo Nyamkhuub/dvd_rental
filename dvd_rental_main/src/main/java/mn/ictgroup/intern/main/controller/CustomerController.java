@@ -24,7 +24,6 @@ public class CustomerController {
      public List<Customer> getCustomersByCustomerId(@RequestParam Long customerId){
         return this.customerService.getCustomersByCustomerId(customerId);
     }
-
     @PostMapping()
     public Customer saveNewCustomer(@RequestBody Customer customer) {
        return customerService.addNewCustomer(customer);
@@ -37,7 +36,4 @@ public class CustomerController {
     public void wrongCustomer(@PathVariable("customerId") Long customerId){
         customerService.deleteCustomer(customerId);
     }
-
-
-
 }

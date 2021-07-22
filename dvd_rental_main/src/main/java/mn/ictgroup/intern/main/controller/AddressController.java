@@ -18,10 +18,12 @@ public class AddressController {
     public List<Address> getAddressByAddressId(@RequestParam Long addressId) {
         return this.addressService.getAddressByAddressId(addressId);
     }
+
     @PostMapping()
     public Address saveNewAddress(@RequestBody Address address) {
         return addressService.addNewAddress(address);
     }
+
     @PutMapping()
     public Response updateAddress(@RequestBody Address address){
         return addressService.editAddress(address);
@@ -31,5 +33,4 @@ public class AddressController {
     public void wrongAddress(@PathVariable("addressId") Long addressId){
         addressService.deleteAddress(addressId);
     }
-
 }

@@ -35,23 +35,23 @@ public class ActorService {
 
     public Response updateActor(Actor actor) {
         Optional<Actor>actorOptional = actorRepository.findActorByLastName(actor.getLastName());
-        Actor newActor = actorOptional.get();
         if(actorOptional.isPresent()){
-            newActor.setActorId(actor.getActorId());
-            newActor.setFirstName(actor.getFirstName());
-            newActor.setLastName(actor.getLastName());
-            newActor.setLastUpdate(actor.getLastUpdate());
-            throw new ApiRequestException("amjltgui");
+            throw new ApiRequestException("not done");
         }
+        Actor newActor = actorOptional.get();
+        newActor.setActorId(actor.getActorId());
+        newActor.setFirstName(actor.getFirstName());
+        newActor.setLastName(actor.getLastName());
+        newActor.setLastUpdate(actor.getLastUpdate());
             actorRepository.save(newActor);
-         return new Response ("amjilttai", "success");
-    }
+         return new Response ("done", "success");
+        }
 
     public void deleteActor(Long actorId) {
        boolean exists = actorRepository.existsById(actorId);
        if (!exists){
            throw new ApiRequestException(actorId + "doesn't delete");
-       }
+    }
        actorRepository.deleteByActorId(actorId);
     }
 }

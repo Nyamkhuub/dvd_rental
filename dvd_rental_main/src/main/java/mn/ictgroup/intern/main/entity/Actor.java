@@ -17,7 +17,6 @@ import lombok.Setter;
  * @author Unubayar
  *
  */
-
 @Getter
 @Setter
 @Entity(name = "actor")
