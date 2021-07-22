@@ -35,6 +35,5 @@ public interface ActorRepository extends JpaRepository<Actor, Long> {
     void deleteByActorId(Long actorId);
 
 
-
 //    Optional<Actor> findActorByFirstName(String firstName);
 }

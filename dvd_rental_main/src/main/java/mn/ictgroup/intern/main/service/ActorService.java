@@ -28,7 +28,7 @@ public class ActorService {
     public Actor addNewActor(Actor actor) {
         Optional<Actor>actorOptional = actorRepository.findActorByFirstName(actor.getFirstName());
         if(actorOptional.isPresent()){
-            throw new ApiRequestException("Firstname taken");
+            throw new ApiRequestException("FirstName taken");
         }
           return actorRepository.save(actor);
     }
