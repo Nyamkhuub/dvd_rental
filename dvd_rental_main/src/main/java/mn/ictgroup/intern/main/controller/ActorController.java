@@ -36,6 +36,7 @@ public class ActorController {
        return actorService.updateActor(actor);
     }
 
+
     @DeleteMapping()
     public void wrongActor(@PathVariable("actorId") Long actorId){
         actorService.deleteActor(actorId);
