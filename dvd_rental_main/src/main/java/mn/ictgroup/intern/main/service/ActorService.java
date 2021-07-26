@@ -37,15 +37,15 @@ public class ActorService {
     public Response updateActor(Actor actor) {
         Optional<Actor>actorOptional = actorRepository.findActorByLastName(actor.getLastName());
         if(actorOptional.isPresent()){
-            throw new ApiRequestException("not done");
-        }
-        Actor newActor = actorOptional.get();
-        newActor.setActorId(actor.getActorId());
-        newActor.setFirstName(actor.getFirstName());
-        newActor.setLastName(actor.getLastName());
-        newActor.setLastUpdate(actor.getLastUpdate());
+            Actor newActor = actorOptional.get();
+            newActor.setActorId(actor.getActorId());
+            newActor.setFirstName(actor.getFirstName());
+            newActor.setLastName(actor.getLastName());
+            newActor.setLastUpdate(actor.getLastUpdate());
             actorRepository.save(newActor);
-         return new Response ("done", "success");
+            return new Response ("done", "success");
+        }
+        throw new ApiRequestException("not done");
         }
 
     public void deleteActor(Long actorId) {
