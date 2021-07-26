@@ -5,10 +5,10 @@ import org.springframework.http.HttpStatus;
 import java.time.ZonedDateTime;
 
 public class ApiException {
-    private final String message;
-    private final Throwable throwable;
-    private final HttpStatus httpStatus;
-    private final ZonedDateTime timestamp;
+    public final String message;
+    public final Throwable throwable;
+    public final HttpStatus httpStatus;
+    public final ZonedDateTime timestamp;
 
 
     public ApiException(String message,
