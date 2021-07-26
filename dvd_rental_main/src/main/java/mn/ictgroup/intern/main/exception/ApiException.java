@@ -10,6 +10,7 @@ public class ApiException {
     private final HttpStatus httpStatus;
     private final ZonedDateTime timestamp;
 
+
     public ApiException(String message,
                         Throwable throwable,
                         HttpStatus httpStatus,
