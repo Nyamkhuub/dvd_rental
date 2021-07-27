@@ -11,3 +11,7 @@
     - [ ] Repository interface дээр Query annotation ашиглаж query бичих
     - [ ] Query annotation дээр JOIN operation ашигласан query бичиж өгөгдлийг 2 өөр янзаар mapping хийж авах (use interface class || use SqlResultSetMapping)
     - [ ] Native query бичих бөгөөд тухайн query-г EntityManager класс ашиглаж Dto классруу mapping хийж авах 
+  - [ ] Eureka server тохируулах
+  - [ ] Cloud gateway тохируулах
+  - [ ] Central config server тохируулах
+  - [ ] Spring boot admin тохируулах
