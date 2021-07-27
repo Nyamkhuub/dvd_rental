@@ -33,7 +33,7 @@ public class Language implements Serializable {
     private Long languageId;
 
     @Column(name = "film_id", nullable = false)
-    private String name;
+    private String languageName;
 
     @Column(name = "last_update", nullable = false)
     private Date lastUpdate = new Date();

@@ -20,5 +20,5 @@ public interface CategoryRepository extends JpaRepository<Category, Long> {
 
     List<Category> findByCategoryId(Long categoryId);
 
-    Optional<Category> findByCategoryLastUpdate(Date lastUpdate);
+    Optional<Category> findByCategoryName(String categoryName);
 }

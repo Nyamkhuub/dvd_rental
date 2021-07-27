@@ -19,5 +19,5 @@ public interface LanguageRepository extends JpaRepository<Language, Long> {
 
     List<Language> findByLanguageId(Long languageId);
 
-    Optional<Language> findByLanguageName(String name);
+    Optional<Language> findByLanguageName(String languageName);
 }

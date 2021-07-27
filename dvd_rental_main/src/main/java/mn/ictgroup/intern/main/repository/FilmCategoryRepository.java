@@ -1,5 +1,6 @@
 package mn.ictgroup.intern.main.repository;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -15,7 +16,5 @@ import mn.ictgroup.intern.main.entity.FilmCategory;
 @Repository
 public interface FilmCategoryRepository extends JpaRepository<FilmCategory, Long> {
 
-    List<FilmCategory> findByFilmId(Long filmId);
-
-    List<FilmCategory> findByCategoryId(Long categoryId);
+    List<FilmCategory> findByLastUpdate(Date lastUpdate);
 }

@@ -1,5 +1,6 @@
 package mn.ictgroup.intern.main.controller;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,11 +26,7 @@ public class FilmActorController {
     private FilmActorService filmActorService;
 
     @GetMapping()
-    public List<FilmActor> getFilmActorsByFilmId(@RequestParam Long filmId) {
-        return this.filmActorService.getFilmActorsByFilmId(filmId);
-    }
-    @GetMapping()
-    public List<FilmActor> getFilmActorsByActorId(@RequestParam Long actorId) {
-        return this.filmActorService.getFilmActorsByActorId(actorId);
+    public List<FilmActor> getFilmActorsByLastUpdate(@RequestParam() Date lastUpdate) {
+        return this.filmActorService.getFilmActorsByLastUpdate(lastUpdate);
     }
 }

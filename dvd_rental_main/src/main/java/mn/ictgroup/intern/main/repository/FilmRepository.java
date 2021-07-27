@@ -16,10 +16,9 @@ import mn.ictgroup.intern.main.entity.Film;
 @Repository
 public interface FilmRepository extends JpaRepository<Film, Long> {
 
-    List<Film> findByLanguageId(Long LanguageId);
+
 
     List<Film> findByFilmId(Long filmId);
 
-    Optional<Film> findByFilmLength(Long length);
-
+    Optional<Film> findByFilmTitle(String filmTitle);
 }

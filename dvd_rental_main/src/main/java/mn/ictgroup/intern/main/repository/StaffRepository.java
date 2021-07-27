@@ -21,8 +21,5 @@ public interface StaffRepository extends JpaRepository<Staff, Long> {
 
     List<Staff> findByStaffId(Long staffId);
 
-    //@Query("SELECT s FROM Staff s WHERE s.email = ?1")
-    Optional<Staff> findStaffByEmail(String email);
-
     Optional<Staff> findStaffByFirstName(String firstName);
 }
